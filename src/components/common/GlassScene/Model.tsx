@@ -72,7 +72,7 @@ export function Model() {
       >
         Hello, Lummical
       </Text>
-      <mesh ref={meshRef} scale={1.2}>
+      <mesh ref={meshRef} scale={1}>
         <octahedronGeometry args={[1, 0]} />
         <MeshTransmissionMaterial {...materialProps} />
       </mesh>

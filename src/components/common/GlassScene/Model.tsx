@@ -1,13 +1,12 @@
 import { useRef, useEffect, useState } from 'react'
-import { MeshTransmissionMaterial, useGLTF, Text } from '@react-three/drei'
+import { MeshTransmissionMaterial, Text } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import type { Mesh, Group } from 'three'
 import * as THREE from 'three'
 
 export function Model() {
-  const { nodes } = useGLTF('/medias/torrus.glb') as any
   const { viewport } = useThree()
-  const torus = useRef<Mesh>(null)
+  const meshRef = useRef<Mesh>(null)
   const groupRef = useRef<Group>(null)
 
   // Track mouse position
@@ -27,9 +26,10 @@ export function Model() {
   }, [])
 
   useFrame(() => {
-    if (torus.current) {
+    if (meshRef.current) {
       // Base rotation
-      torus.current.rotation.x += 0.01
+      meshRef.current.rotation.x += 0.005
+      meshRef.current.rotation.y += 0.008
 
       // Smooth lerp towards mouse-influenced rotation
       targetRotation.current.x = mouse.y * 0.5
@@ -72,12 +72,10 @@ export function Model() {
       >
         Hello, Lummical
       </Text>
-      <mesh ref={torus} {...nodes.Torus002}>
+      <mesh ref={meshRef} scale={1.8}>
+        <octahedronGeometry args={[1, 0]} />
         <MeshTransmissionMaterial {...materialProps} />
       </mesh>
     </group>
   )
 }
-
-// Preload the model
-useGLTF.preload('/medias/torrus.glb')

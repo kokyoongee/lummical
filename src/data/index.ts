@@ -1,0 +1,5 @@
+export { services, type Service } from './services'
+export { stats, type Stat } from './stats'
+export { testimonials, type Testimonial } from './testimonials'
+export { pricingPlans, type PricingPlan, type PricingFeature } from './pricing'
+export { steps, type Step } from './howItWorks'

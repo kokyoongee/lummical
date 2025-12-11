@@ -27,9 +27,9 @@ export function Model() {
 
   useFrame(() => {
     if (meshRef.current) {
-      // Base rotation
-      meshRef.current.rotation.x += 0.005
-      meshRef.current.rotation.y += 0.008
+      // Base rotation (slow)
+      meshRef.current.rotation.x += 0.002
+      meshRef.current.rotation.y += 0.003
 
       // Smooth lerp towards mouse-influenced rotation
       targetRotation.current.x = mouse.y * 0.5
@@ -72,7 +72,7 @@ export function Model() {
       >
         Hello, Lummical
       </Text>
-      <mesh ref={meshRef} scale={1.8}>
+      <mesh ref={meshRef} scale={1.2}>
         <octahedronGeometry args={[1, 0]} />
         <MeshTransmissionMaterial {...materialProps} />
       </mesh>

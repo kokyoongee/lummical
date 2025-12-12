@@ -42,11 +42,11 @@ export function Navbar() {
             {/* Logo */}
             <motion.a
               href="#"
-              className="flex items-center"
+              className="text-xl font-semibold text-white"
               whileHover={{ opacity: 0.7 }}
               transition={{ duration: 0.2 }}
             >
-              <img src="/logo.svg" alt="Lummical" className="h-8 w-auto" />
+              Lummical
             </motion.a>
 
             {/* Desktop Navigation - Apple style centered */}
